@@ -25,7 +25,7 @@ const Home = () => {
         for (let m = 0; m < i; m++) {
           newBoard[y + m][x] = turnColor;
         }
-        setTurnColor(3 - turnColor)
+        setTurnColor(3 - turnColor);
         break;
       } else {
         continue;
