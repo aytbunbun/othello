@@ -16,10 +16,20 @@ const Home = () => {
   const onClick = (x: number, y: number) => {
     console.log(x, y);
     const newBoard: number[][] = JSON.parse(JSON.stringify(board));
-    if (board[y + 1] !== undefined && board[y + 1][x] !== 0 && board[y + 1][x] !== turnColor) {
-      newBoard[y][x] = turnColor;
-      setTurnColor(3 - turnColor);
-    }
+    for (let i = 1; i < 8; i++)
+      if (board[y + 1][x] === turnColor) {
+        break;
+      } else if (board[y + i][x] === undefined || board[y + i][x] === 0) {
+        break;
+      } else if (board[y + i][x] === turnColor) {
+        for (let m = 0; m < i; m++) {
+          newBoard[y + m][x] = turnColor;
+        }
+        setTurnColor(3 - turnColor)
+        break;
+      } else {
+        continue;
+      }
     setBoard(newBoard);
   };
   return (
