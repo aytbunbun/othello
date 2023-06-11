@@ -36,6 +36,7 @@ const Home = () => {
           break;
         } else if (
           board[y + dir.y * i][x + dir.x * i] !== turnColor &&
+          board[y + dir.y * (i + 1)] !== undefined &&
           board[y + dir.y * (i + 1)][x + dir.x * (i + 1)] === turnColor
         ) {
           newBoard[y][x] = turnColor;
