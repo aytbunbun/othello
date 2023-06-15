@@ -67,7 +67,8 @@ const Home = () => {
     console.table(board);
     console.log(x, y);
     if (board[y][x] === 3) {
-      const stones = gameSystem(x, y, false, turnColor, board).board;
+      const newBoard: number[][] = JSON.parse(JSON.stringify(board));
+      const stones = gameSystem(x, y, false, turnColor, newBoard).board;
 
       for (let i = 0; i < 8; i++) {
         for (let j = 0; j < 8; j++) {
