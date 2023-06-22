@@ -1,10 +1,10 @@
 import { Cell } from '../components/Cell';
+import { useGame } from '../hooks/useGame';
 import styles from './index.module.css';
-import{useGame}from '../hooks/useGame'
 
 const colors: string[] = ['', '黒のターン', '白のターン'];
 const Home = () => {
-  const {turnColor,board,onClick} = useGame();
+  const { turnColor, board, onClick } = useGame();
   return (
     <div className={styles.container}>
       <div
