@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import styles from './index.module.css';
+import { Cell } from '../components/Cell'
+
 
 const Home = () => {
   const [turnColor, setTurnColor] = useState(1);
@@ -112,16 +114,8 @@ const Home = () => {
       </div>
       <div className={styles.board}>
         {board.map((row, y) =>
-          row.map((color, x) => (
-            <div className={styles.cell} key={`${x}-${y}`} onClick={() => onClick(x, y)}>
-              {color !== 0 && (
-                <div
-                  className={styles.stone}
-                  style={{ background: color === 1 ? '#000' : color === 2 ? '#fff' : '#fa0' }}
-                />
-              )}
-            </div>
-          ))
+          row.map((color, x) => <Cell key={`${x}-${y}`} color={color} onClick={()=>onClick(x,y)} />
+          )
         )}
       </div>
     </div>
